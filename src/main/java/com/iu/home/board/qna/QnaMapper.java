@@ -5,10 +5,14 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-//@Repository 생략가능
+import com.iu.home.util.Pager;
+
+//@Repository 생략 가능
 @Mapper
 public interface QnaMapper {
 	
-	public List<QnaVO> getList() throws Exception;
-	public int addList() throws Exception;
+	public List<QnaVO> getList(Pager pager)throws Exception;
+
+	public int setAdd(QnaVO qnaVO)throws Exception;
+
 }
