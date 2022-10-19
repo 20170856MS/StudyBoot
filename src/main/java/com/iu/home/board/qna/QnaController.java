@@ -27,12 +27,12 @@ public class QnaController {
 	private QnaService qnaService;
 	
 	@PostMapping("add")
-	public String setAdd(QnaVO qnaVO, RedirectAttributes redirectAttributes, HttpSession session)throws Exception{
+	public String setAdd(QnaVO qnaVO, RedirectAttributes redirectAttributes)throws Exception{
 		
-		int result = qnaService.setAdd(qnaVO, session);
+		int result = qnaService.setAdd(qnaVO);
 		redirectAttributes.addAttribute("result", result);
 		
-		return "";//"redirect:./list";
+		return "redirect:./list";
 	}
 	
 	@GetMapping("add")
@@ -48,6 +48,12 @@ public class QnaController {
 		mv.addObject("pager", pager);
 		mv.setViewName("board/list");
 		return mv;
+	}
+	
+	@GetMapping("detail")
+	public String getDetail() throws Exception{
+		
+		return "board/detail";
 	}
 
 	
