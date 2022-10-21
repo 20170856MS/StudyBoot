@@ -9,4 +9,5 @@ public class QnaFileVO {
 	private Long num;
 	private String fileName;
 	private String oriName;
+
 }

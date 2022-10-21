@@ -32,8 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse,web
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse,web
+# Created by https://www.toptal.com/developers/gitignore/api/windows,eclipse,java,web
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,eclipse,java,web
 
 ### Eclipse ###
 .metadata
@@ -135,7 +135,7 @@ replay_pid*
 #*.htm
 #*.html
 #*.js
-*.jsp
+#*.jsp
 *.php
 *.rss
 *.wasm
@@ -168,4 +168,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse,web
+# End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java,web

@@ -16,10 +16,8 @@
 	</insert>
 	
 	<insert id="setFileAdd" parameterType="QnaFileVO">
-		INSERT INTO qnaFiles VALUES(NULL, #{num}, #{fileName}, #{oriName})
+		INSERT INTO QNAFILES
+		VALUES (NULL, #{num}, #{fileName}, #{oriName})
 	</insert>
 	
-	<select id="getDetail" resultType="QnaVO">
-		SELECT S.TITLE, S.WRITER, S.CONTENTS, S.REDATE, J.oriName from QNA as S Join qnaFiles AS J on S.num=J.num; 
-	</select>
 </mapper>    

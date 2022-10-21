@@ -49,12 +49,6 @@ public class QnaController {
 		mv.setViewName("board/list");
 		return mv;
 	}
-	
-	@GetMapping("detail")
-	public String getDetail() throws Exception{
-		
-		return "board/detail";
-	}
 
 	
 }

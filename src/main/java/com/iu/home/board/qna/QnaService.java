@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.home.util.FileManager;
@@ -18,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+@Transactional(rollbackFor = Exception.class)
 public class QnaService {
 	@Autowired
 	private QnaMapper qnaMapper;
@@ -34,15 +35,21 @@ public class QnaService {
 	
 	public int setAdd(QnaVO qnaVO)throws Exception{
 		int result = qnaMapper.setAdd(qnaVO);
-		
+				
 		File file = new File(path);
 		
 		if(!file.exists()) {
-			file.mkdirs();
+			boolean check=file.mkdirs();
 		}
+	
 		
 		
 		for(MultipartFile f : qnaVO.getFiles()) {
+			if(f.isEmpty()) {
+				log.info("------------- Exception 발생-----------");
+				throw new Exception();
+			}
+			
 			if(!f.isEmpty()) {
 				log.info("FileName : {}", f.getOriginalFilename());
 				String fileName = fileManager.saveFile(f, path);
@@ -51,11 +58,11 @@ public class QnaService {
 				qnaFileVO.setOriName(f.getOriginalFilename());
 				qnaFileVO.setNum(qnaVO.getNum());
 				qnaMapper.setFileAdd(qnaFileVO);
+				
 			}
 		}
 		
-		return result;
+		return 0;
 	}
-	
 
 }
