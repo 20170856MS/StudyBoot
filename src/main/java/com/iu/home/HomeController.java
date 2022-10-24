@@ -18,22 +18,22 @@ public class HomeController {
 	
 //	@Value("${my.message.hi}")
 	private String message;
+	@Value("${my.default}")
+	private String app;
 	
 //	private final Logger log = LoggerFactory.getLogger(HomeController.class);
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
-	@Value("${my.default}")
-	private String app;
 	
 	@Autowired
 	private QnaMapper qnaMapper;
 	
 	@GetMapping("/")
 	public String home() throws Exception {
-		log.info("Info Message");
-		log.info("message : {}", message);
-		log.info("default : {}", app);
-		log.info("========================");
+		log.info("==========================");
+		log.info("message {} ", message);
+		log.info("default {} ", app);
+		log.info("==========================");
+
 		return "index";
 	}
 

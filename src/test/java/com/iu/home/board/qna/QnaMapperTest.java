@@ -23,10 +23,8 @@ import com.iu.home.util.Pager;
 @Transactional
 class QnaMapperTest {
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
 	@Value("${my.default}")
 	private String app;
-	
 	
 	@Autowired
 	private QnaMapper qnaMapper;
@@ -57,10 +55,11 @@ class QnaMapperTest {
 	}
 	
 	@Test
-	@Rollback(false)
+	//@Rollback(false)
 	void test2() throws Exception {
 		//qnaMapper.setUpdate(qnaVO);
 		//qnaMapper.setDelete(qnaVO);
+		log.info("============ { } =========", app);
 		qnaVO = new QnaVO();
 		qnaVO.setTitle("Title");
 		qnaVO.setWriter("Writer");

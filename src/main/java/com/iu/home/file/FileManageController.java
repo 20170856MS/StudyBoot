@@ -15,8 +15,7 @@ public class FileManageController {
 	
 	@GetMapping("/fileDown/{p}") //RestFul, RestAPI
 	public ModelAndView fileDown(@PathVariable(name = "p") String path, QnaFileVO qnaFileVO)throws Exception{
-		log.info("Path : {} ", path);
-		
+		log.info("Path : {} ", path);	
 		ModelAndView mv = new ModelAndView();
 		//DB에서 정보 조회
 		if(path.equals("qna")) {
