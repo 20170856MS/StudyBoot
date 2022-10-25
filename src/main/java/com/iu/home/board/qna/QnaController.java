@@ -49,6 +49,16 @@ public class QnaController {
 		mv.setViewName("board/list");
 		return mv;
 	}
+	
+	@GetMapping("detail")
+	public ModelAndView getDetail(QnaVO qnaVO) throws Exception{
+		qnaVO = qnaService.getDetail(qnaVO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("vo",qnaVO);
+		mv.setViewName("board/detail");
+		
+		return mv;
+	}
 
 	
 }

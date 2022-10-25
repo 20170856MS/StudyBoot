@@ -19,5 +19,25 @@
 		INSERT INTO QNAFILES
 		VALUES (NULL, #{num}, #{fileName}, #{oriName})
 	</insert>
+	<select id="getDetail" parameterType="QnaVO" resultMap="getDetailResult">
+		SELECT Q.*, QF.* FROM QNA Q LEFT 
+		JOIN QNAFILES QF ON Q.NUM = QF.NUM
+		WHERE Q.NUM= #{num}
+	</select>
+	<resultMap type="QnaVO" id="getDetailResult">
+		<id column="num" property="num"/>
+		<result column="title" property="title"/>
+		<result column="writer" property="writer"/>
+		<result column="contents" property="contents"/>
+		<result column="hit" property="hit"/>
+		<result column="ref" property="ref"/>
+		<result column="step" property="step"/>
+		<result column="depth" property="depth"/>
+		<collection property="qnaFiles" javaType="List" ofType="QnaFileVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
 	
 </mapper>    
