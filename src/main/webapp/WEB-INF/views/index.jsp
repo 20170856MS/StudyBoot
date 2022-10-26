@@ -9,6 +9,7 @@
 
 <c:import url="./temp/boot.jsp"></c:import>
 <link href="/css/test.css" rel="stylesheet">
+<script defer src="/js/test.js"></script>
 
 </head>
 <body>
@@ -27,7 +28,7 @@
 		</c:choose>
 	</div>
 	
-	<img src="./images/winter.jpg" id="id1">
+	<img src="./images/gudi.jpg" id="id1">
 	<a href="./qna/list">QNA</a>
 	<div>
 		<img alt="" src="/file/qna/75aaf265-c34f-4ed6-a881-1d152e806b18_아이유.jpg">
@@ -35,7 +36,16 @@
 		<a href="/fileDown/qna?fileNum=2">QnaDown</a>
 		<a href="/fileDown/notice?fileNum=2">NoticeDown</a>
 	</div>
+	
+	<button id="btn">CLICK</button>
+	<button class="buttons">BTN1</button>
+	<button class="buttons">BTN2</button>
+	<button class="buttons">BTN3</button>
 
+	<div id="test">
+		
 
-</body>
+	</div>
+
+</body>	
 </html>
