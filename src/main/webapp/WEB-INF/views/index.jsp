@@ -13,7 +13,21 @@
 </head>
 <body>
 	<h1>Index page</h1>
-	<img src="./images/gudi.jpg" id="id1">
+	
+	<div>
+		<c:choose>
+			<c:when test="${not empty member}">
+				<a href="./member/logout">logout</a>
+			</c:when>
+			<c:otherwise>
+				<a href="./member/login">login</a>
+				<a href="./member/add">Join</a>
+			</c:otherwise>
+			
+		</c:choose>
+	</div>
+	
+	<img src="./images/winter.jpg" id="id1">
 	<a href="./qna/list">QNA</a>
 	<div>
 		<img alt="" src="/file/qna/75aaf265-c34f-4ed6-a881-1d152e806b18_아이유.jpg">

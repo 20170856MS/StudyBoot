@@ -27,7 +27,7 @@ public class QnaService {
 	@Value("${app.upload.qna}")
 	private String path;
 	
-	public QnaVO getDetail(QnaVO qnaVO) throws Exception{
+	public QnaVO getDetail(QnaVO qnaVO)throws Exception{
 		return qnaMapper.getDetail(qnaVO);
 	}
 	

@@ -23,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class FileManager extends AbstractView {
-	
 	@Value("${app.download.base}")
 	private String base;
 	
@@ -36,7 +35,7 @@ public class FileManager extends AbstractView {
 		 log.info("--------------------------------");
 		 log.info("FILEVO {} ", qnaFileVO);
 		 
-		 File file = new File("D:/result/upload/"+path, qnaFileVO.getFileName());
+		 File file = new File(base+path, qnaFileVO.getFileName());
 		 
 		 //한글 처리
 		 response.setCharacterEncoding("UTF-8");

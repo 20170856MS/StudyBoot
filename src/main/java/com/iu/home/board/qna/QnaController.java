@@ -26,6 +26,15 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	@GetMapping("detail")
+	public ModelAndView getDetail(QnaVO qnaVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		qnaVO=qnaService.getDetail(qnaVO);
+		mv.addObject("vo", qnaVO);
+		mv.setViewName("board/detail");
+		return mv;
+	}
+	
 	@PostMapping("add")
 	public String setAdd(QnaVO qnaVO, RedirectAttributes redirectAttributes)throws Exception{
 		
@@ -47,16 +56,6 @@ public class QnaController {
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("board/list");
-		return mv;
-	}
-	
-	@GetMapping("detail")
-	public ModelAndView getDetail(QnaVO qnaVO) throws Exception{
-		qnaVO = qnaService.getDetail(qnaVO);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("vo",qnaVO);
-		mv.setViewName("board/detail");
-		
 		return mv;
 	}
 
