@@ -29,5 +29,9 @@ public class MemberService {
 	public MemberVO getLogin(MemberVO memberVO)throws Exception{
 		return memberMapper.getLogin(memberVO);
 	}
+	
+	public Integer getIdCheck(MemberVO memberVO) throws Exception{
+		return memberMapper.getIdCheck(memberVO);
+	}
 
 }

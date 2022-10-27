@@ -49,8 +49,21 @@ $("#joinButton").click(function(){
 
 ///id 체크
 $("#inputId").blur(function(){
+    let id = $("#inputId").val();
     let result = nullCheck($("#inputId").val(), "#inputIdResult", "ID");
     results[0] = result;
+    console.log(result);
+
+    //단 id가 null이 아닐때
+    $.get("./idCheck?id="+id, function(data){
+        console.log("Data : ",data);
+        if(data=='0'){
+            $("#inputIdResult").html("사용 가능한 ID");
+        }else{
+            $("#inputIdResult").html("이미 사용중인 ID");
+            
+        }
+    })
 });
 
 /// pw 체크

@@ -36,4 +36,8 @@
 		</collection>
 	
 	</resultMap>	
+	<select id="getIdCheck" parameterType="MemberVO" resultType="MemberVO">
+		SELECT ID FROM MEMBER WHERE ID = #{id}
+	</select>
+	
 </mapper>    
