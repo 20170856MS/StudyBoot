@@ -78,29 +78,32 @@
         	</div>
         
         </div>
-
-		<!--약관 test-->
-		<div>
+        
+		<!-- 약관 test-->
+        <div class="row justify-content-center mt-5">
 			<div>
 				ALL <input type="checkbox" id="all">
-			</div>
+			</div>	
+
 			<div>
-				동의 1 <input type="checkbox" class="check" name="" id="">
+				동의1 <input type="checkbox" class="check" name="" id="">	
 				<div>
 					약관1
-				</div>
+				</div>	
 			</div>
+
 			<div>
-				동의 2 <input type="checkbox" class="check" name="" id="">
+				동의2 <input type="checkbox" class="check" name="" id="">	
 				<div>
 					약관2
-				</div>
+				</div>	
 			</div>
+
 			<div>
-				동의 3 <input type="checkbox" class="check" name="" id="">
+				동의3 <input type="checkbox" class="check" name="" id="">	
 				<div>
 					약관3
-				</div>
+				</div>	
 			</div>
 		</div>
 

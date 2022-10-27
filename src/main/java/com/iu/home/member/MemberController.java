@@ -15,6 +15,20 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("idCheck")
+	@ResponseBody
+	public int getIdCheck(MemberVO memberVO)throws Exception{
+		return memberService.getIdCheck(memberVO);
+//		int result=0; //memberVO == null
+//		
+//		if(memberVO != null) {
+//			result =1;
+//		}
+//		
+//		return result;
+		
+	}
+	
 	@GetMapping("add")
 	public void setAdd()throws Exception{
 		
@@ -46,19 +60,6 @@ public class MemberController {
 		session.invalidate();
 		
 		return "redirect:../";
-	}
-	
-	@GetMapping("idCheck")
-	@ResponseBody
-	public int getIdCheck(MemberVO memberVO) throws Exception{
-		return memberService.getIdCheck(memberVO);
-//		int result = 0; //memberVO == null
-//		
-//		if(memberVO != null) {
-//			result = 1;
-//		}
-//		
-//		return result;
 	}
 
 }

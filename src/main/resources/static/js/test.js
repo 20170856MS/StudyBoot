@@ -5,13 +5,11 @@ $("#btn").click(function(){
 });
 
 //const buttons = document.getElementsByClassName("buttons");
-//const buttons = document.querySelectorAll(".buttons");
+//const buttons = document.querySelectorAll(".buttons")
 
 $(".buttons").click(function(){
-    console.log("click buttons");
-});
+    console.log("buttons");
+})
 
-$("#test").on("click", "#btn2", function(){
-    
-});
+$("#test").on("click", "#btn2", function(){});
 
