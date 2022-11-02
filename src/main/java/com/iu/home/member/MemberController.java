@@ -87,15 +87,16 @@ public class MemberController {
 	public void getLogin()throws Exception{
 		
 	}
-	@PostMapping("login")
-	public String getLogin(MemberVO memberVO, HttpSession session)throws Exception{
-		
-		memberVO = memberService.getLogin(memberVO);
-		
-		session.setAttribute("member", memberVO);
-		
-		return "redirect:../";
-	}
+//  SpringSecurity에서 처리
+//	@PostMapping("login")
+//	public String getLogin(MemberVO memberVO, HttpSession session)throws Exception{
+//		
+//		memberVO = memberService.getLogin(memberVO);
+//		
+//		session.setAttribute("member", memberVO);
+//		
+//		return "redirect:../";
+//	}
 	
 	@GetMapping("logout")
 	public String getLogout(HttpSession session)throws Exception{
