@@ -21,64 +21,6 @@ import lombok.Data;
 @Data
 public class MemberVO implements UserDetails{
 	
-	
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// <? super T> 부모를 허용, 타입을 보장
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		for(RoleVO roleVO : roleVOs) {
-			authorities.add(new SimpleGrantedAuthority(roleVO.getRoleName()));
-		
-		}
-		
-		return authorities;
-	}
-
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return this.pw;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return this.id;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		// 계정의 만료 여부
-		// true  : 만료 안됨
-		// false : 만료 됨 : 로그인 불가
-		
-		return true;	
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		// 계정 잠김 여부
-		// true : 계정이 잠기지 않음
-		// false : 계정이 잠김 : 로그인 불가
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		// 비밀번호 만료 여부
-		// true : 만료 안됨
-		// false : 만됴됨 : 로그인 불가
-		return true;
-	}
-	
-	//isEnabled
-	// 계정 사용 여부
-	// true : 계정 활성화(계정 사용 가능)
-	// false : 계정 비활성화(계정 사용 불가능, 로그인 불가)
-
 	@NotBlank(message = "ID는 꼭 필요해!!!")
 	private String id;
 	@NotBlank
@@ -98,7 +40,63 @@ public class MemberVO implements UserDetails{
 	private boolean enabled;
 	
 	private List<RoleVO> roleVOs;
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		
+		List<GrantedAuthority> authorities = new ArrayList<>();
+		for(RoleVO roleVO : roleVOs) {
+			authorities.add(new SimpleGrantedAuthority(roleVO.getRoleName()));
+			
+		}
+		
+		return authorities;
+	}
+
+	@Override
+	public String getPassword() {
+		// PW 반환
+		return this.getPw();
+	}
+
+	@Override
+	public String getUsername() {
+		// ID 반환
+		return this.id;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		//계정의 만료 여부
+		//true : 만료 안됨
+		//false: 만료 됨, 로그인 불가
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// 계정 잠김 여부
+		// true : 계정이 잠기지 않음
+		// false : 계점이 잠김, 로그인 불가
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// 비밀번호 만료 여부
+		// true : 만료 안됨
+		// false : 만료 됨, 로그인 안됨
+		return true;
+	}
 	
+	//isEnabled
+	// 계정 사용 여부
+	// true : 계정 활성화(계정 사용 가능)
+	// false : 계정 비활성화(계정 사용 불가, 로그인 불가)
+	public boolean isEnabled() {
+		return true;
+	}
 	
 	
 

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>   
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,8 @@
 			  <div class="row mb-3">
 			    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 			    <div class="col-sm-10">
-			      <form:input path="name" cssClass="form-control" id="inputName"/>	
+			      <form:input path="name" cssClass="form-control" id="inputName"/>
+			     	
 				  <div id="inputNameResult">
 				  	${name}
 				  </div>
@@ -104,6 +106,7 @@
 				동의1 <input type="checkbox" class="check" name="" id="">	
 				<div>
 					약관1
+					<spring:message code="agree.test"></spring:message>
 				</div>	
 			</div>
 
