@@ -80,6 +80,12 @@
 		$("#logout").click(function() {
 			$("#outForm").submit();
 		})
+		
+		$("#kakao").click(function() {
+			$.get("http://developers.kakao.com/logout"),function(){
+				location.reload();
+			}
+		})
 	</script>
 </body>
 </html>

@@ -27,6 +27,11 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("logoutResult")
+	public String socialLogout() throws Exception{
+		return "redirect:../";
+	}
+	
 	
 	@GetMapping("mypage")
 	public void getMyPage()throws Exception{
